@@ -22,11 +22,39 @@ namespace TesteCreditSuisse.Controllers
         }
 
         [Route("AddCategory")]
-        [HttpGet]
-        public bool AddCategory(Category category)
+        [HttpPost]
+        public bool AddCategory(double value, string category, string risk)
         {
-            _category.AddCategory(category);
+            Category Newcategory = new Category();
+            Newcategory.Value = value;
+            Newcategory.ClientSector = category;
+            Newcategory.Risk = risk;
+            _category.AddCategory(Newcategory);
             return true;
+        }
+
+        [Route("RemoveCategory")]
+        [HttpDelete]
+        public void RemoveCategory(int ID)
+        {
+            _category.RemoveCategory(ID);
+        }
+
+        [Route("ListCategories")]
+        [HttpGet]
+        public List<Category> ListCategories()
+        {
+            List<Category> categories = new List<Category>();
+            _category.ListCategory();
+            return categories;
+        }
+
+        [Route("UpdateCategory")]
+        [HttpPut]
+        public void UpdateCategory()
+        {
+            Category category = new Category();
+            _category.UpdateCategory(category);
         }
     }
 }

@@ -11,12 +11,15 @@ namespace TesteCreditSuisse.Business
     {
         public bool AddCategory(Category category)
         {
+            
             return true;
         }
 
         public List<Category> ListCategory()
         {
-            throw new NotImplementedException();
+            List<Category> Listcategories = new List<Category>();
+            return Listcategories;
+            
         }
 
         public void RemoveCategory(int ID)

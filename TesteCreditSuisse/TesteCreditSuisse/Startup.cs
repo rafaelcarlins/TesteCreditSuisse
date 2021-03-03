@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TesteCreditSuisse.Business;
+using TesteCreditSuisse.Interface;
 
 namespace TesteCreditSuisse
 {
@@ -35,7 +37,8 @@ namespace TesteCreditSuisse
                     Description = "Teste Credit Suisse usando Swagger"
                 });
             });
-            //services.AddControllers();
+            services.AddScoped<ICategory, CategoryBusiness>();
+            services.AddScoped<ITrade, TradeBusiness>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
