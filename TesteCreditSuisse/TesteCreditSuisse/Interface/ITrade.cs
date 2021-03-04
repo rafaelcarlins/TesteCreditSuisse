@@ -8,8 +8,9 @@ namespace TesteCreditSuisse.Interface
 {
     public interface ITrade
     {
+        List<string> tradeCategories(List<Trade> trades);
         double Value { get; }
         string ClientSector { get; }
-        void addPortfolio(List<Trade> trades);
+        //void addPortfolio(List<Trade> trades);
     }
 }

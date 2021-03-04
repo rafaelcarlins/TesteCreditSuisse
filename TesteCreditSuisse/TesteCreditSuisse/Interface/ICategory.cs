@@ -10,7 +10,7 @@ namespace TesteCreditSuisse.Interface
     {
         bool AddCategory(Category category);
         void RemoveCategory(int ID);
-        Category UpdateCategory(Category category);
+        bool UpdateCategory(Category category);
         List<Category> ListCategory();
     }
 }

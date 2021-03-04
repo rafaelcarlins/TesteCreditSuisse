@@ -39,7 +39,6 @@ C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuis
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\obj\Debug\netcoreapp3.1\TesteCreditSuisse.csprojAssemblyReference.cache
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
@@ -49,3 +48,4 @@ C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuis
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\obj\Debug\netcoreapp3.1\TesteCreditSuisse.csproj.CoreCompileInputs.cache
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\obj\Debug\netcoreapp3.1\TesteCreditSuisse.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\obj\Debug\netcoreapp3.1\TesteCreditSuisse.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Rafael\source\repos\TesteCreditSuisse\TesteCreditSuisse\TesteCreditSuisse\obj\Debug\netcoreapp3.1\TesteCreditSuisse.csprojAssemblyReference.cache

@@ -23,18 +23,19 @@ namespace TesteCreditSuisse.Controllers
 
         [Route("AddPorfolio")]
         [HttpPost]
-        public bool AddPortfolio(IEnumerable<Trade> trades)
+        public List<string> tradeCategories(List<Trade> trades)
         {
             Portfolio portfolio = new Portfolio();
             portfolio.portfolio = new List<Trade>();
 
             foreach (var item in trades)
             {
-                portfolio.portfolio.Add (item);
+                portfolio.portfolio.Add(item);
             }
-            _trade.addPortfolio(portfolio.portfolio);
             
-            return true;
+            List<string> ReturnTradeCategories = new List<string>() ;
+            ReturnTradeCategories = _trade.tradeCategories(portfolio.portfolio);
+            return ReturnTradeCategories;
         }
 
     }

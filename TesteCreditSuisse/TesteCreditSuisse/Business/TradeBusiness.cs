@@ -6,13 +6,13 @@ using TesteCreditSuisse.Interface;
 using TesteCreditSuisse.Model;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
+
 
 namespace TesteCreditSuisse.Business
 {
     public class TradeBusiness : ITrade
     {
-        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)//MSSQLLocalDB;Initial Catalog=CreditSuisse;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection conn = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=CreditSuisse;Trusted_Connection=True;MultipleActiveResultSets=true");
 
         private double _value;
         public double Value 
@@ -22,30 +22,57 @@ namespace TesteCreditSuisse.Business
         }
 
         private string _clientSector;
+        private SqlDataAdapter da;
+        private DataTable dt;
+
         public string ClientSector 
         {
             get => _clientSector;
             set => _clientSector = value;
         }
 
-        public void addPortfolio(List<Trade> trades)
+        public List<string> tradeCategories(List<Trade> trades)
         {
-            var CategoryId = returnCategory();
-            SqlCommand com = new SqlCommand("SP_AddPortfolio", conn);
-            com.CommandType = CommandType.StoredProcedure;
+            List<string> ListTradeCategories = new List<string>();
             foreach (var item in trades)
             {
-                com.Parameters.AddWithValue("@Value", item.Value);
-                com.Parameters.AddWithValue("@ClientSector", item.ClientSector);
-                com.Parameters.AddWithValue("@CategoryId", CategoryId);
+                string TradeCategories = returnCategories(item);
+                ListTradeCategories.Add(TradeCategories);
             }
-            conn.Open();
-            com.ExecuteNonQuery();
-            conn.Close();
+            
+            return ListTradeCategories;
         }
-        private int returnCategory()
+        public string returnCategories(Trade trade)
         {
-            return 1;
+            SqlCommand cmd = new SqlCommand();
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            try
+            {
+                cmd = new SqlCommand("SP_TradeCategory", conn);
+                cmd.Parameters.Add(new SqlParameter("@ClientSector", trade.ClientSector));
+                cmd.Parameters.Add(new SqlParameter("@value", trade.Value));
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+
+            }
+            catch (Exception x)
+            {
+                
+            }
+            string TradeCategories = "";
+            if (dt.Rows.Count > 0)
+            {
+                TradeCategories = dt.Rows[0][0].ToString();
+            }
+            else
+            {
+                TradeCategories = "Not categorized";
+            }
+            
+            return TradeCategories;
         }
+        
     }
 }

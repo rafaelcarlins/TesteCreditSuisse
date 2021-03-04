@@ -18,26 +18,22 @@ namespace TesteCreditSuisse.Controllers
         public CategoriesController(ICategory category)
         {
             _category = category;
-
         }
 
         [Route("AddCategory")]
         [HttpPost]
-        public bool AddCategory(double value, string category, string risk)
+        public bool AddCategory(Category Newcategory)
         {
-            Category Newcategory = new Category();
-            Newcategory.Value = value;
-            Newcategory.ClientSector = category;
-            Newcategory.Risk = risk;
             _category.AddCategory(Newcategory);
             return true;
         }
 
         [Route("RemoveCategory")]
         [HttpDelete]
-        public void RemoveCategory(int ID)
+        public bool RemoveCategory(int ID)
         {
             _category.RemoveCategory(ID);
+            return true;
         }
 
         [Route("ListCategories")]
@@ -45,16 +41,15 @@ namespace TesteCreditSuisse.Controllers
         public List<Category> ListCategories()
         {
             List<Category> categories = new List<Category>();
-            _category.ListCategory();
+            categories = _category.ListCategory();
             return categories;
         }
 
         [Route("UpdateCategory")]
         [HttpPut]
-        public void UpdateCategory()
+        public bool UpdateCategory(Category Newcategory)
         {
-            Category category = new Category();
-            _category.UpdateCategory(category);
+            return _category.UpdateCategory(Newcategory);
         }
     }
 }
