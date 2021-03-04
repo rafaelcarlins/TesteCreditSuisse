@@ -21,7 +21,7 @@ namespace TesteCreditSuisse.Controllers
 
         }
 
-        [Route("AddPorfolio")]
+        [Route("IdentifyRisk")]
         [HttpPost]
         public List<string> tradeCategories(List<Trade> trades)
         {

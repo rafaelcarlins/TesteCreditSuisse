@@ -22,8 +22,6 @@ namespace TesteCreditSuisse.Business
         }
 
         private string _clientSector;
-        private SqlDataAdapter da;
-        private DataTable dt;
 
         public string ClientSector 
         {
@@ -47,20 +45,13 @@ namespace TesteCreditSuisse.Business
             SqlCommand cmd = new SqlCommand();
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            try
-            {
-                cmd = new SqlCommand("SP_TradeCategory", conn);
-                cmd.Parameters.Add(new SqlParameter("@ClientSector", trade.ClientSector));
-                cmd.Parameters.Add(new SqlParameter("@value", trade.Value));
-                cmd.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand = cmd;
-                da.Fill(dt);
+            cmd = new SqlCommand("SP_TradeCategory", conn);
+            cmd.Parameters.Add(new SqlParameter("@ClientSector", trade.ClientSector));
+            cmd.Parameters.Add(new SqlParameter("@value", trade.Value));
+            cmd.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand = cmd;
+            da.Fill(dt);
 
-            }
-            catch (Exception x)
-            {
-                
-            }
             string TradeCategories = "";
             if (dt.Rows.Count > 0)
             {
